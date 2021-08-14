@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public Transform groundCheck;
     public Transform ceilingCheck;
     public Transform weaponPos;
@@ -89,21 +90,58 @@ public class PlayerMovement : MonoBehaviour
 
         // XY Koordinaten der Maus
         Vector2 worldPositon = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log("Position x: " + worldPositon.x + " | Position y: " + worldPositon.y);
+        // Debug.Log("Position x: " + worldPositon.x + " | Position y: " + worldPositon.y);
 
         // XY Koordinaten des Players bzw. der Waffe
         Vector2 weaponPos = this.weaponPos.position;
-        Debug.Log("Position x: " + weaponPos.x + " | Position y: " + weaponPos.y);
-        
+        // Debug.Log("Position x: " + weaponPos.x + " | Position y: " + weaponPos.y);
+
+        Vector2 lookdir = worldPositon - weaponPos;
+
+        float angle = (Mathf.Atan2(lookdir.x, lookdir.y) * Mathf.Rad2Deg - 90f) * (-1);
+        // Debug.Log("Angle: " + angle);
+
         // Dreieck berechnen, Winkel berechnen, Objekt rotieren bei aktion
         // beispiel mikes spiel
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Debug.Log("Position Speer: " + this.spriteRenderer.transform.position.x + "Y: " + this.spriteRenderer.transform.position.y);
+            if (facingRight && (angle >= 100 && angle <= 260))
+            {
+                Flip();
+                this.weaponPos.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else if (!facingRight && (angle <= 80 && angle >= -80))
+            {
+                Flip();
+                this.weaponPos.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                this.weaponPos.rotation = Quaternion.Euler(0, 0, angle);
+            }
+
+            // nach abspielen der animation auf rotation (0,0,0) setzen
+        }
     }
 
     void Flip()
     {
+        if (this.facingRight)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
         this.facingRight = !this.facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Test Pickup");
     }
 }
