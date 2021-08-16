@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public int maxExtraJumps;
     private int maxJumpsCount = 0;
 
-    private bool facingRight = true;
+    public bool facingRight = true;
 
     private Rigidbody2D rb;
 
@@ -138,10 +138,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         this.facingRight = !this.facingRight;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Test Pickup");
     }
 }

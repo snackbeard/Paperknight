@@ -230,8 +230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item1: {fileID: 6277581420272685179, guid: dc45eeac8ca693f40892bb8979f6364e, type: 3}
   item2: {fileID: 2193481654388967574, guid: 0f97ef0797181814d888bb5bfaa5159a, type: 3}
+  item3: {fileID: 7717952373613631365, guid: d56faf30d4558ec46945e1ba0a6e83f6, type: 3}
   item1chanceMax: 75
   item2chanceMax: 100
+  item3chanceMax: 50
   maxHealth: 100
 --- !u!1 &7982422604680167496
 GameObject:

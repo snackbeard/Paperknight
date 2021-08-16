@@ -7,12 +7,16 @@ public class GegnerScript : MonoBehaviour
 
     public GameObject item1;
     public GameObject item2;
+    public GameObject item3;
 
     // 0 - 50 nix
     // 51 - 75
-    public int item1chanceMax = 75;
+    public int item1chanceStart = 51;
     // 76 - 100
-    public int item2chanceMax = 100;
+    public int item2chanceStart = 76;
+
+    // 41 - 50
+    public int item3chanceStart = 41;
 
     public int maxHealth = 100;
     private int currentHealth;
@@ -39,15 +43,19 @@ public class GegnerScript : MonoBehaviour
     {
         int random = Random.Range(0, 100);
 
-        if (random > 76)
+        if (random > this.item2chanceStart)
         {
-            Instantiate(item2, gameObject.transform.position, Quaternion.identity);
-            Debug.Log("Spawned item 2");
+            Instantiate(this.item2, gameObject.transform.position, Quaternion.identity);
+            // Debug.Log("Spawned item 2");
         }
-        else if (random > 51)
+        else if (random > this.item1chanceStart)
         {
-            Instantiate(item1, gameObject.transform.position, Quaternion.identity);
-            Debug.Log("Spawned item 1");
+            Instantiate(this.item1, gameObject.transform.position, Quaternion.identity);
+            // Debug.Log("Spawned item 1");
+        }
+        else if (random > this.item3chanceStart)
+        {
+            Instantiate(this.item3, gameObject.transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);

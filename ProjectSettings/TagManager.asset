@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ItemTag
+  - Item1
+  - Item2
+  - Item3
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - UI
   - Ground
   - Gegner
-  - Item
-  - 
+  - ItemWeapon
+  - ItemConsumable
   - 
   - 
   - 
