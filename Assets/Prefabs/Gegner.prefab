@@ -228,12 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e456e3807baacdf4e8d1e3172ad06796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbarController: {fileID: 0}
   item1: {fileID: 6277581420272685179, guid: dc45eeac8ca693f40892bb8979f6364e, type: 3}
+  item1chanceStart: 76
   item2: {fileID: 2193481654388967574, guid: 0f97ef0797181814d888bb5bfaa5159a, type: 3}
+  item2chanceStart: 51
   item3: {fileID: 7717952373613631365, guid: d56faf30d4558ec46945e1ba0a6e83f6, type: 3}
-  item1chanceMax: 75
-  item2chanceMax: 100
-  item3chanceMax: 50
+  item3chanceStart: 41
   maxHealth: 100
 --- !u!1 &7982422604680167496
 GameObject:
@@ -305,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

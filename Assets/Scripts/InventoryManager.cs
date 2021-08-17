@@ -28,7 +28,8 @@ public class InventoryManager : MonoBehaviour
 
     public bool addItem(string tag, int layer)
     {
-
+        Debug.Log("Tag: " + tag);
+        this.text.tag = tag;
         if (layer == 8)
         {
             for (int i = 0; i < this.weaponSlots.Length; i++)
@@ -50,7 +51,6 @@ public class InventoryManager : MonoBehaviour
                 if (!this.isFullCons[i])
                 {
                     this.isFullCons[i] = true;
-                    this.text.tag = tag;
                     this.text.text = tag + "; " + layer.ToString();
                     Instantiate(this.text, this.consSlots[i].transform.position, Quaternion.identity, this.consSlots[i].transform);
                     return false;
@@ -82,6 +82,7 @@ public class InventoryManager : MonoBehaviour
 
     public void dropItem()
     {
+        
         Debug.Log("Drop weapon request");
         if (this.isFullWeapons[this.slot])
         {
@@ -91,7 +92,9 @@ public class InventoryManager : MonoBehaviour
             Destroy(this.weaponSlots[this.slot].gameObject.GetComponentInChildren<Text>());
 
             // methode zum spawnen in welt
+            Debug.Log("Tag dropItem() :" + itemTag);
             this.gameController.gameObject.GetComponent<GameController>().spawnNewWorldItem(itemTag);
         }
+        
     }
 }

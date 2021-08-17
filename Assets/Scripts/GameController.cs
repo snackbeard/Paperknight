@@ -20,23 +20,23 @@ public class GameController : MonoBehaviour
 
     public void spawnNewWorldItem(string tag)
     {
-        GameObject toSpawn = this.itemTagMapping["Item1"];
+        
+        Debug.Log(tag);
+        GameObject toSpawn = this.itemTagMapping[tag];
         bool facingRight = this.player.gameObject.GetComponent<PlayerMovement>().facingRight;
-        (toSpawn.gameObject.transform.GetChild(0)).GetComponent<BoxCollider2D>().enabled = false;
-        Instantiate(toSpawn, player.transform.position, Quaternion.identity);
-        // Instantiate(toSpawn, new Vector3(-28.2209f, 0.008237956f, 0), Quaternion.identity);
+        GameObject item = Instantiate(toSpawn, player.transform.position, Quaternion.identity);
+        (item.gameObject.transform.GetChild(0)).GetComponent<BoxCollider2D>().enabled = false;
 
-        // Vector2 direction = new Vector2(250, 150);
-        /*
+        Vector2 direction = new Vector2(3, 3);
         if (!facingRight)
         {
-            direction.x = -10;
+            direction.x = -3;
         }
-        */
-        Rigidbody2D rb = toSpawn.gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(0, 100));
-        Debug.Log("ItemName: " + rb.name);
 
+        item.GetComponent<Rigidbody2D>().velocity = direction;
+        
+        // funktioniert nicht, script mit update funktion für item welche es nach ground collision auf true setzt?
+        // (item.gameObject.transform.GetChild(0)).GetComponent<BoxCollider2D>().enabled = true;
         // ??
         
 

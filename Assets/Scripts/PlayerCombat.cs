@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public GameObject healthbarController;
     public int damage;
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -27,6 +28,13 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("Hit: " + enemy.name);
             enemy.GetComponent<GegnerScript>().takeDamage(this.damage);
         }
+
+        this.onDamage(10);
+    }
+
+    void onDamage(int damage)
+    {
+        this.healthbarController.gameObject.GetComponent<HealthbarController>().takeDamage(damage);
     }
 
     private void OnDrawGizmosSelected()
