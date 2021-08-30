@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: BodenSW128
+  m_Name: Erde128OhneStein
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: e4284f14030ab71499a36160b2c58ebd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae2b3d962b4180345ac86a44fad465e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
